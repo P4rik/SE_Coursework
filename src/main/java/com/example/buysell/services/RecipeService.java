@@ -1,33 +1,34 @@
 package com.example.buysell.services;
 
 import com.example.buysell.module.Recipe;
+import com.example.buysell.repositories.RecipeRepositorie;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
+@RequiredArgsConstructor
 public class RecipeService {
-    private List<Recipe> recipes = new ArrayList<>();
-    private long ID = 0;
-    {
-        recipes.add(new Recipe(++ID,"Шарлотка","Ну тіпа да","Cунь хуй в чай","bRyder"));
+    private final RecipeRepositorie recipeRepository;
+    public List<Recipe> listRecipes(String title) {
+        if (title != null) return recipeRepository.findByTitle(title);
+        return recipeRepository.findAll();
     }
-    public List<Recipe> listRecipes() { return recipes; }
 
     public void saveRecipe(Recipe recipe) {
-        recipe.setId(++ID);
-        recipes.add(recipe);
+        log.info("Saving new {}", recipe);
+        recipeRepository.save(recipe);
     }
 
     public void deleteRecipe(Long id) {
-        recipes.removeIf(recipe -> recipe.getId().equals(id));
+        recipeRepository.deleteById(id);
     }
 
     public Recipe getRecipeById(Long id) {
-        for (Recipe recipe : recipes) {
-            if (recipe.getId().equals(id)) return recipe;
-        }
-        return null;
+        return recipeRepository.findById(id).orElse(null);
     }
 }
