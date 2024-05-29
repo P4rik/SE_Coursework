@@ -1,7 +1,7 @@
-package com.example.buysell.controllers;
+package recipes.controllers;
 
-import com.example.buysell.module.Recipe;
-import com.example.buysell.services.RecipeService;
+import recipes.module.Recipe;
+import recipes.services.RecipeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
-public class ProductController {
+public class RecipeController {
     private final RecipeService recipeService;
     @GetMapping("/")
     public String recipes(@RequestParam(name = "title", required = false) String title, Model model) {

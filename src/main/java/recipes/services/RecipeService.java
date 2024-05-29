@@ -1,12 +1,11 @@
-package com.example.buysell.services;
+package recipes.services;
 
-import com.example.buysell.module.Recipe;
-import com.example.buysell.repositories.RecipeRepositorie;
+import recipes.module.Recipe;
+import recipes.repositories.RecipeRepositorie;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

@@ -1,4 +1,4 @@
-package com.example.buysell.module;
+package recipes.module;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

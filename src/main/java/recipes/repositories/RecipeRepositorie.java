@@ -1,6 +1,6 @@
-package com.example.buysell.repositories;
+package recipes.repositories;
 
-import com.example.buysell.module.Recipe;
+import recipes.module.Recipe;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
