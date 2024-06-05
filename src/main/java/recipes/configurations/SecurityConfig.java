@@ -22,11 +22,11 @@ public class SecurityConfig {
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/", "/registration","/images/**","/recipe/**", "/static/**", "/user/**").permitAll()
-                .requestMatchers( "/create/**")
-                .hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
-                .anyRequest().authenticated()
-        )
+                        .requestMatchers("/", "/registration","/images/**","/recipe/**", "/static/**", "/user/**").permitAll()
+                        .requestMatchers( "/create/**")
+                        .hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
+                        .anyRequest().authenticated()
+                )
                 .formLogin((form) -> form
                         .loginPage("/login")
                         .permitAll()
